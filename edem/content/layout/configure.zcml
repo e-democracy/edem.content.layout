@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configure xmlns="http://namespaces.zope.org/zope"
            xmlns:browser="http://namespaces.zope.org/browser">
+  <!-- The normal (full-page) layout -->
+  <browser:page 
+    name="groupserver_layout" 
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/fullpage_layout.pt"
+    permission="zope.Public" />
+  <browser:page 
+    name="groupserver_menu_layout" 
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/menu_layout.pt"
+    permission="zope.Public" />
 
+  <!-- The (increasingly) rare menu-layout -->
+  <browser:page 
+    name="groupserver_site_home_layout" 
+    for="*" 
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/fullpage_layout.pt"
+    permission="zope.Public" />
+  <browser:page 
+    name="groupserver_full_layout" 
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/fullpage_layout.pt"
+    permission="zope.Public" />
 </configure>

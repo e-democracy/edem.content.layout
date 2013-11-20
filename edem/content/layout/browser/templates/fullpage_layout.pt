@@ -1,0 +1,128 @@
+<metal:macro
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="gs.content.layout"
+  define-macro="page"><tal:doctype replace="structure string:&lt;!DOCTYPE html&gt;" />
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      tal:define="ap view/request/AUTHENTICATION_PATH | nothing;
+                  hasSkin python:ap and (ap[:6] == '++skin');
+                  skin python:ap.split('/')[0] if hasSkin else '';
+                  url view/request/URL;
+                  urlSansPage string:${view/request/URL1}/;
+                  urlSansProtocol python:urlSansPage.split(':')[1];"
+      tal:attributes="data-skin skin; data-url url;
+                      data-url-sans-page urlSansPage">
+  <head>
+    <base tal:attributes="href urlSansProtocol" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <metal:block define-slot="title" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <tal:block  metal:define-slot="metadata-global"
+      tal:condition="python:hasattr(context, 'metadata.xml')"
+      tal:replace="structure python:getattr(context, 'metadata.xml')()">
+      &#160;
+    </tal:block>
+    <link rel="home" href="/"
+      tal:attributes="title string:${view/siteInfo/name} Home;"/>
+    <link rel="help" href="/help"
+      tal:attributes="title string:${view/siteInfo/name} Help;"/>
+    <tal:block  metal:define-slot="metadata" />
+
+    <!--Favourite Icon-->
+    <link rel="shortcut" href="/++resource++favicon.ico" />
+
+    <!-- styling typically covering all sites -->
+    <link rel="stylesheet" type="text/css"
+          href="/++resource++globalstyle-20131105.css" />
+    <!-- styling just covering local customisations to sites -->
+    <link rel="stylesheet" type="text/css"
+          href="/++resource++site-20131105.css" />
+    <metal:block define-slot="style" />
+  </head>
+  <body tal:define="siteName view/siteInfo/name | nothing"
+    tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
+    <div id="toparea" role="banner">
+      <div id="titlebar">
+        <a id="titlebar-home-link" href="/"><span class="logo"> </span>
+        <span class="site" tal:content="siteName">Site Name</span></a>
+        <ul id="utilitylinks" metal:define-slot="utilitylinks"
+            role="navigation" class="dotted-inline-list"
+            tal:define="userId user/getId;">
+          <li id="utilitylinks-log-in" tal:condition="not:userId">
+            <a id="utilitylinks-log-in-link" href="/login.html"
+               class="btn btn-small" data-icon="&#x1f512;"
+               tal:attributes="href url;"
+               tal:define="url string:/login.html?came_from=${request/URLPATH0};"
+               title="Log in here">Sign in</a>
+          </li>
+          <tal:block condition="userId"
+                     define="fn python:user.getProperty('fn','?')">
+            <li id="utilitylinks-profile">
+              <a id="utilitylinks-profile-link" title="View your profile"
+                 href="/p/">
+                <span tal:define="size string:20;"
+                  tal:replace="structure provider:groupserver.SquareUserImage">&#9786;</span>
+                <span class="fn"
+                      tal:content="fn">Your Name</span></a>
+            </li>
+            <li id="utilitylinks-log-out">
+              <a id="utilitylinks-log-out-link"
+                 tal:attributes="title string:Log out from ${siteName}"
+                 href="/cookie_authentication/logout">Sign out</a>
+            </li>
+          </tal:block>
+        </ul><!--utilitylinks-->
+      </div><!--titlebar-->
+    </div><!--toparea-->
+    <div id="gs-content-layout-body">
+      <div id="bodyblock">
+        <div id="breadcrumbs" class="muted small" role="navigation">
+          <metal:block define-slot="breadcrumb"> </metal:block>
+        </div><!--breadcrumbs-->
+        <metal:block define-slot="messages"> </metal:block><!--messages-->
+        <metal:block metal:define-slot="pagetitle"/>
+        <div id="notifications" metal:define-slot="notifications"
+             tal:define="notifications context/notifications | nothing"
+             tal:condition="notifications">
+          <tal:block
+            repeat="notification python:notifications.objectValues()">
+            <p tal:replace="structure python:notification(method='html')">
+              You Maniacs!
+              You blew it up!
+              Ah, <strong>damn you!</strong>
+              God damn you all to <strong>Hell!</strong>
+            </p>
+          </tal:block>
+        </div><!--notifications-->
+        <metal:block define-slot="body" />
+      </div><!--bodyblock-->
+    </div><!--gs-content-layout-body-->
+    <div id="gs-content-layout-footer">
+      <div id="gs-content-layout-footer-content">
+        <metal:block
+          define-slot="footer"
+          tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')"> </metal:block>
+      </div><!--gs-content-layout-footer-content-->
+    </div><!--gs-content-layout-footer-->
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-loader-min-20130111.js">&#160;</script>
+    <script type="text/javascript" defer="true"
+            src="/++resource++jquery-1.9.1.min.js">&#160;</script>
+    <script type="text/javascript"
+            src="/++resource++bootstrap-2.3.0/js/bootstrap.min.js"
+            defer="true">&#160;</script>
+    <metal:block define-slot="javascript" />
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-disclosure-min-20130113.js"
+            defer="true">&#160;</script>
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-required-min-20130517.js"
+            defer="true">&#160;</script>
+    <script type="text/javascript"
+            src="/++resource++gs-content-js-submit-min-20130704.js"
+            defer="true">&#160;</script>
+  </body>
+</html>
+</metal:macro>
