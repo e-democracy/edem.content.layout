@@ -29,6 +29,14 @@
     template="browser/templates/fullpage_layout.pt"
     permission="zope.Public" />
 
+  <!-- SiteNav menu macro -->
+  <browser:page
+    name="edem_sitenav"
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/sitenav.pt"
+    permission="zope.Public" />
+
   <!-- Viewlet Managers for the sitenav menu -->
   <browser:viewletManager
    name="edem.sitenavMM"

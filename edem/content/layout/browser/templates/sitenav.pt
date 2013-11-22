@@ -1,0 +1,6 @@
+        <ul id="sitenav" class="inline-list" metal:define-macro="sitenav_menu">
+          <li id="sitenav-groups"><a href="#">Groups</a></li>
+          <li id="sitenav-support"><a href="#">Support</a></li>
+          <li id="sitenav-about"><a href="#">About</a></li>
+          <li id="sitenav-getInvolved"><a href="#">Get Involved</a></li>
+        </ul>

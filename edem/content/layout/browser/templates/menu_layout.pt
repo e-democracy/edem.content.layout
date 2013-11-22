@@ -33,6 +33,9 @@
     <!--Favourite Icon-->
     <link rel="shortcut" href="/++resource++favicon.ico" />
 
+    <!--Open Sans Font-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
           href="/++resource++globalstyle-20131105.css" />
@@ -47,6 +50,7 @@
       <div id="titlebar">
         <a id="titlebar-home-link" href="/"><span class="logo">&#160;</span>
         <span class="site" tal:content="siteName">Site Name</span></a>
+        <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
         <ul id="utilitylinks" metal:define-slot="utilitylinks"
             role="navigation" class="dotted-inline-list"
             tal:define="userId user/getId;">
@@ -103,6 +107,7 @@
         <metal:block define-slot="body">&#160;</metal:block>
       </div><!--content-->
     </div><!--gs-content-layout-body-->
+    <div tal:replace="structure provider:edem.sitenavMM">Site Navigation Mega Menu</div>
     <div id="gs-content-layout-footer">
       <div id="gs-content-layout-footer-content">
         <metal:block
