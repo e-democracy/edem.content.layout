@@ -28,4 +28,15 @@
     layer="edem.skin.interfaces.IEDemLayer"
     template="browser/templates/fullpage_layout.pt"
     permission="zope.Public" />
+
+  <!-- Viewlet Managers for the sitenav menu -->
+  <browser:viewletManager
+   name="edem.sitenavMM"
+   for="*"
+   layer="edem.skin.interfaces.IEDemLayer"
+   provides=".interfaces.IEDemSiteNavMMVM"
+   class="gs.viewlet.manager.WeightOrderedViewletManager"
+   template="browser/templates/sitenavMMVM.pt"
+   permission="zope.Public" />
+
 </configure>
