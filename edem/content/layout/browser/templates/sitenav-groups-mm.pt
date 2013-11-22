@@ -1,0 +1,25 @@
+<div id="sitenav-groups-mm" class="mm-pane">
+  <div>
+    <strong>Your Groups</strong>
+    <ul>
+      <li>Awesome Group!</li>
+      <li>Serious Group :|</li>
+      <li>That group you don't like</li>
+    </ul>
+    <p>View All</p>
+  </div>
+  <div>
+    <strong>Suggested Group</strong>
+    <ul>
+      <li>Totally Awesome Group!</li>
+      <li>Cats</li>
+      <li>Jeffersonian Republicans</li>
+    </ul>
+    <p>View All</p>
+  </div>
+  <div>
+    <form>
+      <input id="group-search" type="text"/>
+    </form>
+  </div>
+</div>
