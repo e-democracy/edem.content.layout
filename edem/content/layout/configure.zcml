@@ -36,25 +36,4 @@
     layer="edem.skin.interfaces.IEDemLayer"
     template="browser/templates/sitenav.pt"
     permission="zope.Public" />
-
-  <!-- Viewlet Manager and Viewlets for the sitenav mega menu -->
-  <browser:viewletManager
-   name="edem.sitenavMM"
-   for="*"
-   layer="edem.skin.interfaces.IEDemLayer"
-   provides=".interfaces.IEDemSiteNavMMVM"
-   class="gs.viewlet.manager.WeightOrderedViewletManager"
-   template="browser/templates/sitenavMMVM.pt"
-   permission="zope.Public" />
-
-  <browser:viewlet
-   name="edem.sitenavGroupsMM"
-   for="*"
-   layer="edem.skin.interfaces.IEDemLayer"
-   manager=".interfaces.IEDemSiteNavMMVM"
-   class="gs.viewlet.viewlet.SiteViewlet"
-   template="browser/templates/sitenav-groups-mm.pt"
-   weight="0"
-   permission="zope.Public"/>
-
 </configure>
