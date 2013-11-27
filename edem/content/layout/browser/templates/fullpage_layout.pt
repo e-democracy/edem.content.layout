@@ -47,7 +47,7 @@
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea" role="banner">
-      <div id="titlebar yamm navbar">
+      <div id="titlebar" class="yamm navbar">
         <a id="titlebar-home-link" href="/"><span class="logo"> </span>
         <span class="site" tal:content="siteName">Site Name</span></a>
         <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
@@ -102,7 +102,6 @@
         </div><!--notifications-->
         <metal:block define-slot="body" />
       </div><!--bodyblock-->
-      <div tal:replace="structure provider:edem.sitenavMM">Site Navigation Mega Menu</div>
     </div><!--gs-content-layout-body-->
     <div id="gs-content-layout-footer">
       <div id="gs-content-layout-footer-content">
