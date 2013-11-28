@@ -48,9 +48,19 @@
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
     <div id="toparea" role="banner">
       <div id="titlebar" class="yamm navbar">
-        <a id="titlebar-home-link" href="/"><span class="logo"> </span>
-        <span class="site" tal:content="siteName">Site Name</span></a>
-        <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
+        <div class="navbar-header">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target="#sitenav-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a id="titlebar-home-link" href="/"><span class="logo"> </span>
+          <span class="site" tal:content="siteName">Site Name</span></a>
+        </div>
+        <div class="nav-collapse collapse" id="sitenav-collapse">
+          <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
+        </div>
         <ul id="utilitylinks" metal:define-slot="utilitylinks"
             role="navigation" class="dotted-inline-list"
             tal:define="userId user/getId;">
