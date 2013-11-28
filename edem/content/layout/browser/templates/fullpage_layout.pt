@@ -61,33 +61,6 @@
         <div class="nav-collapse collapse" id="sitenav-collapse">
           <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
         </div>
-        <ul id="utilitylinks" metal:define-slot="utilitylinks"
-            role="navigation" class="dotted-inline-list"
-            tal:define="userId user/getId;">
-          <li id="utilitylinks-log-in" tal:condition="not:userId">
-            <a id="utilitylinks-log-in-link" href="/login.html"
-               class="btn btn-small" data-icon="&#x1f512;"
-               tal:attributes="href url;"
-               tal:define="url string:/login.html?came_from=${request/URLPATH0};"
-               title="Log in here">Sign in</a>
-          </li>
-          <tal:block condition="userId"
-                     define="fn python:user.getProperty('fn','?')">
-            <li id="utilitylinks-profile">
-              <a id="utilitylinks-profile-link" title="View your profile"
-                 href="/p/">
-                <span tal:define="size string:20;"
-                  tal:replace="structure provider:groupserver.SquareUserImage">&#9786;</span>
-                <span class="fn"
-                      tal:content="fn">Your Name</span></a>
-            </li>
-            <li id="utilitylinks-log-out">
-              <a id="utilitylinks-log-out-link"
-                 tal:attributes="title string:Log out from ${siteName}"
-                 href="/cookie_authentication/logout">Sign out</a>
-            </li>
-          </tal:block>
-        </ul><!--utilitylinks-->
       </div><!--titlebar-->
     </div><!--toparea-->
     <div id="gs-content-layout-body">

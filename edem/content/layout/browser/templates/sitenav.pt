@@ -1,4 +1,6 @@
-          <ul id="sitenav" class="nav inline-list" metal:define-macro="sitenav_menu">
+          <ul id="sitenav" class="nav inline-list" 
+             metal:define-macro="sitenav_menu"
+             tal:define="userId user/getId;">
             <li id="sitenav-groups" class="dropdown yamm-fullwidth">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Groups <b class="caret"></b></a>
               <ul class="dropdown-menu">
@@ -37,4 +39,47 @@
             <li id="sitenav-support"><a href="#">Support</a></li>
             <li id="sitenav-about"><a href="#">About</a></li>
             <li id="sitenav-getInvolved"><a href="#">Get Involved</a></li>
+            <li id="sitenav-account" class="dropdown yamm-fullwidth">
+              <a tal:condition="not:userId"
+                 href="/login.html"
+		 tal:define="url string:/login.html?came_from=${request/URLPATH0};"
+                 tal:attributes="href url;"
+                 data-icon="&#x1f512;"
+                 title="Log in here">Sign in</a>
+              <a id="utilitylinks-profile-link" 
+                 title="View your profile"
+                 tal:condition="userId"
+                 tal:define="fn python:user.getProperty('fn','?')"
+                 href="#"
+                 class="dropdown-toggle" 
+                 data-toggle="dropdown">
+                 <span tal:define="size string:20;"
+                   tal:replace="structure provider:groupserver.SquareUserImage">&#9786;</span>
+                 <span class="fn"
+                   tal:content="fn">Your Name <b class="caret"></b></span></a>
+              <ul 
+                class="dropdown-menu"
+                tal:condition="userId"
+                tal:define="fn python:user.getProperty('fn','?')">
+                <li>
+                  <div 
+                    id="sitenav-account-mm" 
+                    class="yamm-content"
+                    tal:condition="userId">
+                    <div class="container">
+                      <div class="yamm-section span6">
+                        <a class="btn" 
+                           href="/p/"
+                           title="View your profile"><span class="label">View Your Profile</span></a>
+                      </div>
+                      <div class="yamm-section span6">
+                        <a class="btn"
+                          tal:attributes="title string:Log out from ${siteName}"
+                          href="/cookie_authentication/logout"><span class="label">Sign out</span></a>
+                      </div>
+                    </div><!-- /container -->
+                  </div><!-- /yamm-content -->
+                </li>
+              </ul><!-- /dropdown-menu -->
+            </li><!-- /account -->
           </ul>
