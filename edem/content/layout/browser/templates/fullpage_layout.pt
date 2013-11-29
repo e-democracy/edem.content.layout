@@ -61,6 +61,7 @@
         <div class="nav-collapse collapse" id="sitenav-collapse">
           <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
         </div>
+        <div class="clearfix"></div>
       </div><!--titlebar-->
     </div><!--toparea-->
     <div id="gs-content-layout-body">
