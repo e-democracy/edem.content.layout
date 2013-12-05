@@ -80,26 +80,13 @@
           tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')"> </metal:block>
       </div><!--gs-content-layout-footer-content-->
     </div><!--gs-content-layout-footer-->
-    <script type="text/javascript"
-            src="/++resource++gs-content-js-loader-min-20130111.js">&#160;</script>
-    <script type="text/javascript" defer="true"
-            src="/++resource++jquery-1.9.1.min.js">&#160;</script>
-    <script type="text/javascript"
-            src="/++resource++bootstrap-2.3.0/js/bootstrap.min.js"
-            defer="true">&#160;</script>
-    <script type="text/javascript"
-            src="/++resource++edem-skin-sitenav.js"
-            defer="true">&#160;</script>
+    <script metal:use-macro="context/@@edem_layout_section_javascript/prelude">
+        JavaScript required across all pages, before page specific JavaScript can load
+    </script>
     <metal:block define-slot="javascript" />
-    <script type="text/javascript"
-            src="/++resource++gs-content-js-disclosure-min-20130113.js"
-            defer="true">&#160;</script>
-    <script type="text/javascript"
-            src="/++resource++gs-content-js-required-min-20130517.js"
-            defer="true">&#160;</script>
-    <script type="text/javascript"
-            src="/++resource++gs-content-js-submit-min-20130704.js"
-            defer="true">&#160;</script>
+    <script metal:use-macro="context/@@edem_layout_section_javascript/postlude">
+        JavaScript used across pages, but can and should load later to improve time-to-glass performance
+    </script>
   </body>
 </html>
 </metal:macro>

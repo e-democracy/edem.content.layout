@@ -36,4 +36,10 @@
     layer="edem.skin.interfaces.IEDemLayer"
     template="browser/templates/sections/toparea.pt"
     permission="zope.Public" />
+  <browser:page
+    name="edem_layout_section_javascript"
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/sections/javascript.pt"
+    permission="zope.Public" />
 </configure>
