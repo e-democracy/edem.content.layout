@@ -31,9 +31,9 @@
 
   <!-- SiteNav menu macro -->
   <browser:page
-    name="edem_sitenav"
+    name="edem_layout_section_toparea"
     for="*"
     layer="edem.skin.interfaces.IEDemLayer"
-    template="browser/templates/sitenav.pt"
+    template="browser/templates/sections/toparea.pt"
     permission="zope.Public" />
 </configure>

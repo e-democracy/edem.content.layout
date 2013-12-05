@@ -1,5 +1,19 @@
-          <ul id="sitenav" class="nav nav-list" 
-             metal:define-macro="sitenav_menu"
+      <div id="toparea" role="banner"
+        metal:define-macro="toparea">
+        <div id="titlebar" class="yamm navbar">
+          <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target="#sitenav-collapse">
+            <p>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </p>
+          </a>
+          <div class="nav-collapse collapse" id="sitenav-collapse">
+            <div class="navbar-header">
+              <a id="titlebar-home-link" href="/"><span class="logo"> </span>
+              <span class="site" tal:content="siteName">Site Name</span></a>
+            </div>
+            <ul id="sitenav" class="nav nav-list" 
              tal:define="userId user/getId;">
             <li id="sitenav-groups" class="dropdown yamm-fullwidth">
               <a 
@@ -135,3 +149,7 @@
               </ul><!-- Logged In Account Megamenu -->
             </li><!-- /Sitenav Account Item -->
           </ul><!-- /Sitenav -->
+          </div>
+          <div class="clearfix"></div>
+        </div><!--titlebar-->
+      </div><!--toparea-->

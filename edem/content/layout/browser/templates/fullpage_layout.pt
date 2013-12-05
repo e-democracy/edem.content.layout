@@ -46,24 +46,9 @@
   </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
-    <div id="toparea" role="banner">
-      <div id="titlebar" class="yamm navbar">
-        <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target="#sitenav-collapse">
-          <p>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </p>
-        </a>
-        <div class="nav-collapse collapse" id="sitenav-collapse">
-          <div class="navbar-header">
-            <a id="titlebar-home-link" href="/"><span class="logo"> </span>
-            <span class="site" tal:content="siteName">Site Name</span></a>
-          </div>
-          <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
-        </div>
-        <div class="clearfix"></div>
-      </div><!--titlebar-->
+    <div id="toparea" role="banner"
+      metal:use-macro="context/@@edem_layout_section_toparea/toparea">
+      E-Democracy's Top Banner
     </div><!--toparea-->
     <div id="gs-content-layout-body">
       <div id="bodyblock">

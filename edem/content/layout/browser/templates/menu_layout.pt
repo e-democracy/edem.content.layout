@@ -46,12 +46,9 @@
   </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
-    <div id="toparea" role="banner">
-      <div id="titlebar">
-        <a id="titlebar-home-link" href="/"><span class="logo">&#160;</span>
-        <span class="site" tal:content="siteName">Site Name</span></a>
-        <p metal:use-macro="context/@@edem_sitenav/sitenav_menu">Site Navigation Menu</p>
-      </div><!--titlebar-->
+    <div id="toparea" role="banner"
+      metal:use-macro="context/@@edem_layout_section_toparea/toparea">
+      E-Democracy's Top Banner
     </div><!--toparea-->
     <div id="bodyblock">
       <div id="gs-content-layout-menu">
