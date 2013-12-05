@@ -49,7 +49,7 @@
               </ul><!-- /dropdown-menu -->
             </li>
             <li id="sitenav-support"><a href="#">Support</a></li>
-            <li id="sitenav-about"><a href="#">About</a></li>
+            <li id="sitenav-about"><a href="/about">About</a></li>
             <li id="sitenav-getInvolved"><a href="#">Get Involved</a></li>
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
               <!-- Anonymous Account Sitenav Item -->
