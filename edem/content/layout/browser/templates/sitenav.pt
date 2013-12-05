@@ -5,7 +5,7 @@
               <a 
                 href="#" 
                 class="dropdown-toggle" 
-                data-toggle="dropdown">Groups <b class="caret"></b></a>
+                data-toggle="dropdown">Groups</a>
               <ul class="dropdown-menu">
                 <li>
                   <div id="sitenav-groups-mm" class="yamm-content">
@@ -57,7 +57,7 @@
                  title="Sign In or Register Here"
                  href="#"
                  class="dropdown-toggle"
-                 data-toggle="dropdown">Sign In/Register<b class="caret"></a>
+                 data-toggle="dropdown">Sign In/Register</a>
               <!-- Logged In Account Sitenav Item -->
               <a tal:condition="userId"
                  tal:define="fn python:user.getProperty('fn','?')"
@@ -68,7 +68,7 @@
                  <span tal:define="size string:20;"
                    tal:replace="structure provider:groupserver.SquareUserImage">&#9786;</span>
                  <span class="fn"
-                   tal:content="fn">Your Name </span><b class="caret"></b></a>
+                   tal:content="fn">Your Name</span></a>
               <!-- Anonymous Account Megamenu -->
               <ul 
                 class="dropdown-menu"
