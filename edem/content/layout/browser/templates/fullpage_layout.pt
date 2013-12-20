@@ -43,7 +43,6 @@
     <link rel="stylesheet" type="text/css"
           href="/++resource++site-20131105.css" />
     <metal:block define-slot="style" />
-    <script src="http://debug.phonegap.com/target/target-script-min.js#2014edemo"></script>
   </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
