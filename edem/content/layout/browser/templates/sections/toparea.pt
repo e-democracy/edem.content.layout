@@ -47,7 +47,7 @@
                           <li><a href="#">Totally Awesome Group!</a></li>
                           <li><a href="#">Cats</a></li>
                           <li><a href="#">Whovians in Whoville</a></li>
-                          <li><a href="#">View All &rarr;</a></li>
+                          <li><a href="/groups">View All &rarr;</a></li>
                         </ul>
                       </div>
                       <div class="yamm-section span4"
