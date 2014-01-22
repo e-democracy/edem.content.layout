@@ -3,7 +3,7 @@
 <metal:block define-macro="prelude">
     <script type="text/javascript"
             src="/++resource++gs-content-js-loader-min-20130111.js">&#160;</script>
-    <script type="text/javascript" defer="true"
+    <script type="text/javascript"
             src="/++resource++jquery-1.9.1.min.js">&#160;</script>
     <script type="text/javascript"
             src="/++resource++bootstrap-2.3.0/js/bootstrap.min.js"
