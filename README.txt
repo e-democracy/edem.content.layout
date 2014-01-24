@@ -27,13 +27,18 @@ The Your Groups and Suggested Groups listings in the site navigation menu are
 provided by a content provider: groupserver.NavGroupsListing. This content
 provider produces a simple unordered list of groups. The content provider
 has two parameters that can be defined when included in a template:
-  * groupsTypeToDisplay - Determines which set of groups to display: 
-    * groups that the user can join (joinableGroups)(default);
-    * groups that the user is a member of (memberOfGroups); or  
-    * suggested groups for the user to join (suggestedGroups)
-  * maxGroupsToDisplay - Defines the maximum number of groups to list. If 0
-    (the default), all groups within the choosen category will be displayed.
-    A negative value will cause an error.
+
+* groupsTypeToDisplay - Determines which set of groups to display: 
+
+  * groups that the user can join (joinableGroups)(default);
+
+  * groups that the user is a member of (memberOfGroups); or  
+
+  * suggested groups for the user to join (suggestedGroups)
+
+* maxGroupsToDisplay - Defines the maximum number of groups to list. If 0
+  (the default), all groups within the choosen category will be displayed.
+  A negative value will cause an error.
 
 An example of calling the content provider to display upto 6 groups that the 
 user is a member of::
