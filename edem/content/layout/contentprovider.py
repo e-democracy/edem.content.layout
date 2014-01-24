@@ -54,8 +54,11 @@ class NavGroupsListingContentProvider(SiteContentProvider):
 
     @Lazy
     def suggested_groups(self):
-        groupNames = self.context.getProperty('suggestedGroups', [])
+        siteInfo = createObject('groupserver.SiteInfo', self.context)
+        groupNames = siteInfo.get_property('suggestedGroups', [])
         suggestedGroups = []
+        if self.maxGroupsToDisplay:
+            groupNames = groupNames[:self.maxGroupsToDisplay]
         for groupName in groupNames:
             suggestedGroups.append(
                 createObject('groupserver.GroupInfo', self.context, groupName))
