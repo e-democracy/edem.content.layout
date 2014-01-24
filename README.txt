@@ -34,7 +34,9 @@ has two parameters that can be defined when included in a template:
 
   * groups that the user is a member of (memberOfGroups); or  
 
-  * suggested groups for the user to join (suggestedGroups)
+  * suggested groups for the user to join (suggestedGroups), which is based on
+    the suggestedGroups property of the site object (editable via the ZMI),
+    which is a lines property containing group ids
 
 * maxGroupsToDisplay - Defines the maximum number of groups to list. If 0
   (the default), all groups within the choosen category will be displayed.
