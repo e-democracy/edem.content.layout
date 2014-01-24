@@ -27,27 +27,16 @@
                       <div 
                         tal:condition="userId"
                         class="yamm-section span4">
-                        <ul class="nav nav-list">
-                          <li class="nav-header">Your Groups</li>
-                          <li><a href="#">Awesome Group!</a></li>
-                          <li><a href="#">Serious Group :|</a></li>
-                          <li><a href="#">That group you don't like because everybody talks in pig latin</a></li>
-                          <li>
-                            <a 
-                              href="#"
-                              tal:define="url string:/p/${user/get_canonicalNickname}#groups;"
-                              tal:attributes="href url;">View All &rarr;</a>
-                          </li>
+                        <ul tal:define="groupsTypeToDisplay string:memberOfGroups;
+                                        maxGroupsToDisplay python:6;"
+                            tal:replace="structure provider:groupserver.NavGroupsListing">
                         </ul>
                       </div>
                       <div class="yamm-section span4"
                         tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if userId else 'span6')">
-                        <ul class="nav nav-list">
-                          <li class="nav-header">Suggested Groups</li>
-                          <li><a href="#">Totally Awesome Group!</a></li>
-                          <li><a href="#">Cats</a></li>
-                          <li><a href="#">Whovians in Whoville</a></li>
-                          <li><a href="/groups">View All &rarr;</a></li>
+                        <ul tal:define="groupsTypeToDisplay string:suggestedGroups;
+                                        maxGroupsToDisplay python:6;"
+                            tal:replace="structure provider:groupserver.NavGroupsListing">
                         </ul>
                       </div>
                       <div class="yamm-section span4"

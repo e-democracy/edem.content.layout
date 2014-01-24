@@ -1,0 +1,9 @@
+<tal:block define="view options/view;">
+<ul class="nav nav-list"
+    tal:define="sg view/suggested_groups;">
+  <li class="nav-header">Suggested Groups</li>
+  <li tal:repeat="group sg">
+    <a tal:attributes="href group/relative_url" tal:content="group/name"/>
+  </li>
+</ul>
+</tal:block>
