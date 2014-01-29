@@ -15,14 +15,14 @@
             </div>
             <ul id="sitenav" class="nav nav-list" 
              tal:define="userId user/getId;">
-            <li id="sitenav-groups" class="dropdown yamm-fullwidth">
+            <li id="sitenav-forums" class="dropdown yamm-fullwidth">
               <a 
                 href="#" 
                 class="dropdown-toggle" 
-                data-toggle="dropdown">Groups</a>
+                data-toggle="dropdown">Forums</a>
               <ul class="dropdown-menu">
                 <li>
-                  <div id="sitenav-groups-mm" class="yamm-content">
+                  <div id="sitenav-forums-mm" class="yamm-content">
                     <div class="container">
                       <div 
                         tal:condition="userId"
@@ -42,9 +42,9 @@
                       <div class="yamm-section span4"
                         tal:attributes="class python: 'yamm-section ' + ('span4' if userId else 'span6')">
                         <div class="title">
-                          Can't find a group?
+                          Can't find a forum?
                         </div>
-                        <a class="btn"><span class="label">Request New Group!</span></a>
+                        <a class="btn"><span class="label">Request New Forum!</span></a>
                       </div>
                     </div><!-- /container -->
                   </div><!-- /yamm-content -->

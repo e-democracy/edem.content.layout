@@ -1,7 +1,7 @@
 <tal:block define="view options/view;">
 <ul class="nav nav-list"
     tal:define="jg view/joinable_groups;">
-  <li class="nav-header">Groups You Can Join</li>
+  <li class="nav-header">Forums You Can Join</li>
   <li tal:repeat="group jg">
     <a tal:attributes="href group/relative_url" tal:content="group/name"/>
   </li>

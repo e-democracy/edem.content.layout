@@ -1,7 +1,7 @@
 <tal:block define="view options/view;">
 <ul class="nav nav-list"
     tal:define="mg view/member_groups;">
-  <li class="nav-header">Your Groups</li>
+  <li class="nav-header">Your Forums</li>
   <li tal:repeat="group mg">
     <a tal:attributes="href group/relative_url" tal:content="group/name"/>
   </li>
