@@ -28,14 +28,14 @@
                         tal:condition="userId"
                         class="yamm-section span4">
                         <ul tal:define="groupsTypeToDisplay string:memberOfGroups;
-                                        maxGroupsToDisplay python:6;"
+                                        maxGroupsToDisplay python:4;"
                             tal:replace="structure provider:groupserver.NavGroupsListing">
                         </ul>
                       </div>
                       <div class="yamm-section span4"
                         tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if userId else 'span6')">
                         <ul tal:define="groupsTypeToDisplay string:suggestedGroups;
-                                        maxGroupsToDisplay python:6;"
+                                        maxGroupsToDisplay python:4;"
                             tal:replace="structure provider:groupserver.NavGroupsListing">
                         </ul>
                       </div>
