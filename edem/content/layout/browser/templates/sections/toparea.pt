@@ -44,14 +44,14 @@
                         <div class="title">
                           Can't find a forum?
                         </div>
-                        <a class="btn"><span class="label">Request New Forum!</span></a>
+                        <a class="btn" href="/twincities/request"><span class="label">Request New Forum!</span></a>
                       </div>
                     </div><!-- /container -->
                   </div><!-- /yamm-content -->
                 </li>
               </ul><!-- /dropdown-menu -->
             </li>
-            <li id="sitenav-support"><a href="#">Support</a></li>
+            <li id="sitenav-support"><a href="/help">Help</a></li>
             <li id="sitenav-about"><a href="/about">About</a></li>
             <li id="sitenav-getInvolved"><a href="#">Get Involved</a></li>
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
