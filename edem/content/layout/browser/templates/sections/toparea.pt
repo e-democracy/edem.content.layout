@@ -57,10 +57,10 @@
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
               <!-- Anonymous Account Sitenav Item -->
               <a tal:condition="not:userId"
-                 title="Sign In or Register Here"
+                 title="Sign In or Join Here"
                  href="#"
                  class="dropdown-toggle"
-                 data-toggle="dropdown">Sign In/Register</a>
+                 data-toggle="dropdown">Sign In/Join</a>
               <!-- Logged In Account Sitenav Item -->
               <a tal:condition="userId"
                  tal:define="fn python:user.getProperty('fn','?')"
@@ -95,11 +95,11 @@
                       </div>
                       <div class="yamm-section span6">
                         <div class="title">
-                          Register
+                          Join 
                         </div>
                         <a class="btn"
                            href="/request_registration.html?rb=sitemenu"
-                           >Register</a>
+                           >Join</a>
                       </div>
                     </div><!-- container -->
                   </div><!-- /yamm-content -->
