@@ -34,17 +34,22 @@
                       </div>
                       <div class="yamm-section span4"
                         tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if userId else 'span6')">
-                        <ul tal:define="groupsTypeToDisplay string:suggestedGroups;
-                                        maxGroupsToDisplay python:4;"
-                            tal:replace="structure provider:groupserver.NavGroupsListing">
+                        <ul class="nav nav-list">
+                          <li class="nav-header">Find a Forum</li>
+                          <li><a href="/twincities">All Twin Cities</a></li>
+                          <li><a href="/twincities/minneapolis">Minneapolis</a></li>
+                          <li><a href="/twincities/stpaul/">St. Paul</a></li>
+                          <li><a href="/uk">United Kingdom</a></li>
+                          <li><a href="/practice">Communities of Practice</a></li>
+                          <li><a href="/groups/">View All &rarr;</a></li>
                         </ul>
                       </div>
                       <div class="yamm-section span4"
                         tal:attributes="class python: 'yamm-section ' + ('span4' if userId else 'span6')">
                         <div class="title">
-                          Can't find a forum?
+                          Map of Twin Cities Groups 
                         </div>
-                        <a class="btn" href="/twincities/request"><span class="label">Request New Forum!</span></a>
+                        <a class="btn" href="/twincities/map/"><span class="label">Browse Twin Cities Map</span></a>
                       </div>
                     </div><!-- /container -->
                   </div><!-- /yamm-content -->
