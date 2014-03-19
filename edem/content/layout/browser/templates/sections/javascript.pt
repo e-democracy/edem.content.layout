@@ -2,12 +2,11 @@
 <!-- JavaScript required across all pages, before page specific JavaScript can load -->
 <metal:block define-macro="prelude">
     <script type="text/javascript"
-            src="/++resource++gs-content-js-loader-min-20130111.js">&#160;</script>
+            src="/++resource++gs-content-js-loader-min-20140313.js">&#160;</script>
     <script type="text/javascript"
             src="/++resource++jquery-1.9.1.min.js">&#160;</script>
-    <script type="text/javascript"
-            src="/++resource++bootstrap-2.3.0/js/bootstrap.min.js"
-            defer="true">&#160;</script>
+    <script type="text/javascript" defer="defer"
+            src="/++resource++bootstrap-2.3.2/js/bootstrap.min.js">&#160;</script>
     <script type="text/javascript"
             src="/++resource++edem-skin-sitenav.js"
             defer="true">&#160;</script>
@@ -17,12 +16,12 @@
 <!-- JavaScript used across pages, but can and should load later to improve time-to-glass performance -->
 <metal:block define-macro="postlude">
     <script type="text/javascript"
-            src="/++resource++gs-content-js-disclosure-min-20130113.js"
-            defer="true">&#160;</script>
+            src="/++resource++gs-content-js-disclosure-min-20140313.js"
+            defer="defer">&#160;</script>
     <script type="text/javascript"
-            src="/++resource++gs-content-js-required-min-20130517.js"
-            defer="true">&#160;</script>
+            src="/++resource++gs-content-js-required-min-20140313.js"
+            defer="defer">&#160;</script>
     <script type="text/javascript"
-            src="/++resource++gs-content-js-submit-min-20130704.js"
-            defer="true">&#160;</script>
+            src="/++resource++gs-content-js-submit-min-20140313.js"
+            defer="defer">&#160;</script>
 </metal:block>

@@ -10,7 +10,7 @@
                   skin python:ap.split('/')[0] if hasSkin else '';
                   url view/request/URL;
                   urlSansPage string:${view/request/URL1}/;
-                  urlSansProtocol python:urlSansPage.split(':')[1];"
+                  urlSansProtocol python:':'.join(urlSansPage.split(':')[1:]);"
       tal:attributes="data-skin skin; data-url url;
                       data-url-sans-page urlSansPage">
   <head>
