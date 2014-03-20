@@ -59,8 +59,8 @@
             <li id="sitenav-about"><a href="/about/">About</a></li>
             <li id="sitenav-blog"><a href="http://blog.e-democracy.org">Blog</a></li>
             <li id="sitenav-contact"><a href="/contact/">Contact</a></li>
-            <li id="sitenav-donate"><a href="/donate/">Donate</a></li>
-            <li id="sitenav-support"><a href="/support/">Support</a></li>
+            <li id="sitenav-donate"><a href="/getinvolved/">Get Involved</a></li>
+            <li id="sitenav-support"><a href="/support/">Help</a></li>
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
               <!-- Anonymous Account Sitenav Item -->
               <a tal:condition="not:userId"
