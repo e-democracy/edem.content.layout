@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import absolute_import
+from __future__ import absolute_import, unicode_literals
 from zope.component import createObject
 from zope.cachedescriptors.property import Lazy
 import AccessControl
@@ -63,5 +63,3 @@ class NavGroupsListingContentProvider(SiteContentProvider):
             suggestedGroups.append(
                 createObject('groupserver.GroupInfo', self.context, groupName))
         return suggestedGroups
-            
-            

@@ -1,13 +1,14 @@
 # coding=utf-8
-from __future__ import unicode_literals
+from __future__ import absolute_import, unicode_literals
 from zope.viewlet.interfaces import IViewletManager
 from zope.contentprovider.interfaces import IContentProvider
 from zope.schema.vocabulary import SimpleVocabulary
-from zope.schema import ASCIILine, Choice, Int
+from zope.schema import Choice, Int
 
 
 class IEDemSiteNavMMVM(IViewletManager):
     '''Viewlet Manager for E-Democracy's site navigation mega menu'''
+
 
 class IGSNavGroupsListing(IContentProvider):
     '''Content Provider for a listing of groups in a nav menu'''
