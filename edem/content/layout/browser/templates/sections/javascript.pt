@@ -8,7 +8,7 @@
     <script type="text/javascript" defer="defer"
             src="/++resource++bootstrap-2.3.2/js/bootstrap.min.js">&#160;</script>
     <script type="text/javascript"
-            src="/++resource++edem-skin-sitenav.js"
+            src="/++resource++edem-skin-sitenav-20140402.js"
             defer="true">&#160;</script>
 </metal:block>
 
