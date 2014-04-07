@@ -8,17 +8,17 @@ Base page layouts for forums.e-democracy.org
 :Author: `Bill Bushey`_
 :Contact: Bill Bushey <bill.bushey@e-democracy.org>
 :Date: 2013-11-20
-:Organization: `E-Democracy.org`_
+:Organization: `E-Democracy`_
 :Copyright: This document is licensed under a
   `Creative Commons Attribution-Share Alike 3.0 License`_
-  by `E-Democracy.org`_.
+  by `E-Democracy`_.
 
 Introduction
 ============
 
-This product provides the layouts for browser pages on E-Democracy.org. It
-is based on `gs.content.layout`_, the product that provides layouts for browser
-pages for `GroupServer`_.
+This product provides the layouts for browser pages on forums.e-democracy.org.
+It is based on `gs.content.layout`_, the product that provides layouts for
+browser pages for `GroupServer`_.
 
 Groups Listing Content Provider
 ===============================
@@ -62,7 +62,7 @@ Resources
 - Report bugs at https://redmine.iopen.net/projects/groupserver
 
 .. _GroupServer: http://groupserver.org/
-.. _E-Democracy.org: http://e-democracy.org/
+.. _E-Democracy: http://e-democracy.org/
 .. _Bill Bushey: http://groupserver.org/p/wbushey
 .. _Creative Commons Attribution-Share Alike 3.0 License:
    http://creativecommons.org/licenses/by-sa/3.0/
