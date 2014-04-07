@@ -1,6 +1,9 @@
 <!-- Prelude -->
 <!-- JavaScript required across all pages, before page specific JavaScript can load -->
 <metal:block define-macro="prelude">
+    <span id="edem-content-js-data" 
+      tal:define="loggedIn python:user.has_role('Authenticated');"
+      tal:attributes="data-loggedIn loggedIn;"></span>
     <script type="text/javascript"
             src="/++resource++gs-content-js-loader-min-20140313.js">&#160;</script>
     <script type="text/javascript"
@@ -9,6 +12,9 @@
             src="/++resource++bootstrap-2.3.2/js/bootstrap.min.js">&#160;</script>
     <script type="text/javascript"
             src="/++resource++edem-skin-sitenav-20140402.js"
+            defer="true">&#160;</script>
+    <script type="text/javascript"
+            src="/++resource++edem-skin-add-anonymous-buttons-20140407.js"
             defer="true">&#160;</script>
 </metal:block>
 
