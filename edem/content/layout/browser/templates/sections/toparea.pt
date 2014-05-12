@@ -14,7 +14,7 @@
           </a>
           <div class="nav-collapse collapse" id="sitenav-collapse">
             <ul id="sitenav" class="nav nav-list" 
-             tal:define="loggedIn not:view/loggedInUserInfo/anonymous; userId user/getId;">
+             tal:define="loggedIn not:view/loggedInUserInfo/anonymous | not:view/loggedInUser/anonymous; userId user/getId;">
             <li id="sitenav-forums" class="dropdown yamm-fullwidth">
               <a 
                 href="#" 
@@ -64,14 +64,14 @@
             <li id="sitenav-support"><a href="/support/">Help</a></li>
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
               <!-- Anonymous Account Sitenav Item -->
-              <a tal:condition="view/loggedInUserInfo/anonymous"
+              <a tal:condition="not:loggedIn"
                  title="Sign In or Join Here"
                  href="#"
                  class="dropdown-toggle"
                  data-toggle="dropdown">Sign In/Join</a>
               <!-- Logged In Account Sitenav Item -->
               <a tal:condition="loggedIn"
-                 tal:define="fn view/loggedInUserInfo/name"
+                 tal:define="fn view/loggedInUserInfo/name | view/loggedInUser/name"
                  title="View your profile"
                  href="#"
                  class="dropdown-toggle" 
@@ -117,7 +117,7 @@
               <ul 
                 class="dropdown-menu"
                 tal:condition="loggedIn"
-                tal:define="fn view/loggedInUserInfo/name">
+                tal:define="fn view/loggedInUserInfo/name | view/loggedInUser/name">
                 <li>
                   <div 
                     id="sitenav-account-mm" 
