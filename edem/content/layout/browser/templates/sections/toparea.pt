@@ -14,7 +14,7 @@
           </a>
           <div class="nav-collapse collapse" id="sitenav-collapse">
             <ul id="sitenav" class="nav nav-list" 
-             tal:define="userId user/getId;">
+             tal:define="loggedIn not:view/loggedInUserInfo/anonymous; userId user/getId;">
             <li id="sitenav-forums" class="dropdown yamm-fullwidth">
               <a 
                 href="#" 
@@ -25,7 +25,7 @@
                   <div id="sitenav-forums-mm" class="yamm-content">
                     <div class="container">
                       <div 
-                        tal:condition="userId"
+                        tal:condition="loggedIn"
                         class="yamm-section span4">
                         <ul tal:define="groupsTypeToDisplay string:memberOfGroups;
                                         maxGroupsToDisplay python:4;"
@@ -33,7 +33,7 @@
                         </ul>
                       </div>
                       <div class="yamm-section span4"
-                        tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if userId else 'span6')">
+                        tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if loggedIn else 'span6')">
                         <ul class="nav nav-list">
                           <li class="nav-header">Find a Forum</li>
                           <li><a href="/twincities">All Twin Cities</a></li>
@@ -45,7 +45,7 @@
                         </ul>
                       </div>
                       <div class="yamm-section span4"
-                        tal:attributes="class python: 'yamm-section ' + ('span4' if userId else 'span6')">
+                        tal:attributes="class python: 'yamm-section ' + ('span4' if loggedIn else 'span6')">
                         <div class="title">
                           Map of Twin Cities Groups 
                         </div>
@@ -64,14 +64,14 @@
             <li id="sitenav-support"><a href="/support/">Help</a></li>
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
               <!-- Anonymous Account Sitenav Item -->
-              <a tal:condition="not:userId"
+              <a tal:condition="view/loggedInUserInfo/anonymous"
                  title="Sign In or Join Here"
                  href="#"
                  class="dropdown-toggle"
                  data-toggle="dropdown">Sign In/Join</a>
               <!-- Logged In Account Sitenav Item -->
-              <a tal:condition="userId"
-                 tal:define="fn python:user.getProperty('fn','?')"
+              <a tal:condition="loggedIn"
+                 tal:define="fn view/loggedInUserInfo/name"
                  title="View your profile"
                  href="#"
                  class="dropdown-toggle" 
@@ -83,7 +83,7 @@
               <!-- Anonymous Account Megamenu -->
               <ul 
                 class="dropdown-menu"
-                tal:condition="not:userId"
+                tal:condition="not:loggedIn"
 		        tal:define="url string:/login.html?came_from=${request/URLPATH0};">
                 <li>
                   <div
@@ -116,13 +116,13 @@
               <!-- Logged In Account Megamenu -->
               <ul 
                 class="dropdown-menu"
-                tal:condition="userId"
-                tal:define="fn python:user.getProperty('fn','?')">
+                tal:condition="loggedIn"
+                tal:define="fn view/loggedInUserInfo/name">
                 <li>
                   <div 
                     id="sitenav-account-mm" 
                     class="yamm-content"
-                    tal:condition="userId">
+                    tal:condition="loggedIn">
                     <div class="container">
                       <div class="yamm-section span6">
                         <div class="title">
