@@ -1,5 +1,6 @@
       <div id="toparea" role="banner"
-        metal:define-macro="toparea">
+        metal:define-macro="toparea"
+        tal:define="loggedInUser view/loggedInUserInfo | view/loggedInUser">
         <div id="titlebar" class="yamm navbar">
             <div class="navbar-header">
               <a id="titlebar-home-link" href="/"><span class="logo"> </span>
@@ -14,7 +15,7 @@
           </a>
           <div class="nav-collapse collapse" id="sitenav-collapse">
             <ul id="sitenav" class="nav nav-list" 
-             tal:define="loggedIn not:view/loggedInUserInfo/anonymous | not:view/loggedInUser/anonymous; userId user/getId;">
+             tal:define="userId user/getId;">
             <li id="sitenav-forums" class="dropdown yamm-fullwidth">
               <a 
                 href="#" 
@@ -25,7 +26,7 @@
                   <div id="sitenav-forums-mm" class="yamm-content">
                     <div class="container">
                       <div 
-                        tal:condition="loggedIn"
+                        tal:condition="not:loggedInUser/anonymous"
                         class="yamm-section span4">
                         <ul tal:define="groupsTypeToDisplay string:memberOfGroups;
                                         maxGroupsToDisplay python:4;"
@@ -33,7 +34,7 @@
                         </ul>
                       </div>
                       <div class="yamm-section span4"
-                        tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if loggedIn else 'span6')">
+                        tal:attributes="class python: 'yamm-section ' + ('span4 hidden-phone' if not loggedInUser.anonymous else 'span6')">
                         <ul class="nav nav-list">
                           <li class="nav-header">Find a Forum</li>
                           <li><a href="/twincities">All Twin Cities</a></li>
@@ -45,7 +46,7 @@
                         </ul>
                       </div>
                       <div class="yamm-section span4"
-                        tal:attributes="class python: 'yamm-section ' + ('span4' if loggedIn else 'span6')">
+                        tal:attributes="class python: 'yamm-section ' + ('span4' if not loggedInUser.anonymous else 'span6')">
                         <div class="title">
                           Map of Twin Cities Groups 
                         </div>
@@ -64,14 +65,14 @@
             <li id="sitenav-support"><a href="/support/">Help</a></li>
             <li id="sitenav-account" class="dropdown yamm-fullwidth">
               <!-- Anonymous Account Sitenav Item -->
-              <a tal:condition="not:loggedIn"
+              <a tal:condition="loggedInUser/anonymous"
                  title="Sign In or Join Here"
                  href="#"
                  class="dropdown-toggle"
                  data-toggle="dropdown">Sign In/Join</a>
               <!-- Logged In Account Sitenav Item -->
-              <a tal:condition="loggedIn"
-                 tal:define="fn view/loggedInUserInfo/name | view/loggedInUser/name"
+              <a tal:condition="not:loggedInUser/anonymous"
+                 tal:define="fn loggedInUser/name"
                  title="View your profile"
                  href="#"
                  class="dropdown-toggle" 
@@ -83,7 +84,7 @@
               <!-- Anonymous Account Megamenu -->
               <ul 
                 class="dropdown-menu"
-                tal:condition="not:loggedIn"
+                tal:condition="loggedInUser/anonymous"
 		        tal:define="url string:/login.html?came_from=${request/URLPATH0};">
                 <li>
                   <div
@@ -116,13 +117,13 @@
               <!-- Logged In Account Megamenu -->
               <ul 
                 class="dropdown-menu"
-                tal:condition="loggedIn"
-                tal:define="fn view/loggedInUserInfo/name | view/loggedInUser/name">
+                tal:condition="not:loggedInUser/anonymous"
+                tal:define="fn loggedInUser/name">
                 <li>
                   <div 
                     id="sitenav-account-mm" 
                     class="yamm-content"
-                    tal:condition="loggedIn">
+                    tal:condition="not:loggedInUser/anonymous">
                     <div class="container">
                       <div class="yamm-section span6">
                         <div class="title">
