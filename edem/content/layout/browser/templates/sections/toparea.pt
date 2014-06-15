@@ -121,7 +121,7 @@
                  data-toggle="dropdown">Sign In/Join</a>
               <!-- Logged In Account Sitenav Item -->
               <a tal:condition="not:loggedInUser/anonymous"
-                 tal:define="fn loggedInUser/name"
+                 tal:define="fn python:loggedInUser.get_property('givenName') or loggedInUser.name"
                  title="View your profile"
                  href="#"
                  class="dropdown-toggle" 
@@ -166,8 +166,7 @@
               <!-- Logged In Account Megamenu -->
               <ul 
                 class="dropdown-menu"
-                tal:condition="not:loggedInUser/anonymous"
-                tal:define="fn loggedInUser/name">
+                tal:condition="not:loggedInUser/anonymous">
                 <li>
                   <div 
                     id="sitenav-account-mm" 
@@ -176,11 +175,15 @@
                     <div class="container">
                       <div class="yamm-section span6">
                         <div class="title">
-                          View Your Profile
+                          View and Change Your Profile
                         </div>
                         <a class="btn" 
                            href="/p/"
-                           title="View your profile"><span class="label">View Your Profile</span></a>
+                           title="View and change your profile"><span class="label">View and Change Your Profile</span></a>
+                        <a class="btn" 
+                           href="/p/"
+                           tal:attributes="href string:${loggedInUser/url}/emailsettings.html"
+                           title="Change Email Settings"><span class="label">Change Email Settings</span></a>
                       </div>
                       <div class="yamm-section span6">
                         <div class="title">
