@@ -44,6 +44,15 @@
     template="browser/templates/fullpage_layout.pt"
     permission="zope.Public" />
 
+  <!-- Rarely Used Minimal layout - mostly for error pages -->
+  <browser:page 
+    name="edem_minimal_layout" 
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/minimul_layout.pt"
+    permission="zope.Public" />
+
+
   <!-- SiteNav menu macro -->
   <browser:page
     name="edem_layout_section_toparea"

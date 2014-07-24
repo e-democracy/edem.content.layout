@@ -1,0 +1,194 @@
+<metal:macro
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+  i18n:domain="gs.content.layout"
+  define-macro="page"><tal:doctype replace="structure string:&lt;!DOCTYPE html&gt;" />
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      tal:define="ap view/request/AUTHENTICATION_PATH | nothing;
+                  hasSkin python:ap and (ap[:6] == '++skin');
+                  skin python:ap.split('/')[0] if hasSkin else '';
+                  url view/request/URL;
+                  urlSansPage string:${view/request/URL1}/;
+                  urlSansProtocol python:':'.join(urlSansPage.split(':')[1:]);"
+      tal:attributes="data-skin skin; data-url url;
+                      data-url-sans-page urlSansPage">
+  <head>
+    <base tal:attributes="href urlSansProtocol" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <metal:block define-slot="title" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <tal:block  metal:define-slot="metadata-global"
+      tal:condition="python:hasattr(context, 'metadata.xml')"
+      tal:replace="structure python:getattr(context, 'metadata.xml')()">
+      &#160;
+    </tal:block>
+    <link rel="home" href="/"
+      tal:attributes="title string:${view/siteInfo/name} Home;"/>
+    <link rel="help" href="/help"
+      tal:attributes="title string:${view/siteInfo/name} Help;"/>
+    <tal:block  metal:define-slot="metadata" />
+
+    <!--Favourite Icon-->
+    <link rel="shortcut" href="/++resource++favicon.ico" />
+
+    <!--Open Sans Font-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+
+    <!-- styling typically covering all sites -->
+    <link rel="stylesheet" type="text/css"
+          href="/++resource++globalstyle-20131105.css" />
+    <!-- styling just covering local customisations to sites -->
+    <link rel="stylesheet" type="text/css"
+          href="/++resource++site-20140721.css" />
+    <metal:block define-slot="style" />
+  </head>
+  <body tal:define="siteName view/siteInfo/name | nothing"
+    tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
+      <div id="toparea" role="banner">
+        <div id="titlebar" class="yamm navbar">
+            <div class="navbar-header">
+              <a id="titlebar-home-link" href="/"><span class="logo"> </span>
+              <span class="site" tal:content="siteName">Site Name</span></a>
+            </div>
+          <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target="#sitenav-collapse">
+            <p>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </p>
+          </a>
+          <div class="nav-collapse collapse" id="sitenav-collapse">
+            <ul id="sitenav" class="nav nav-list">
+            <li id="sitenav-forums" class="dropdown yamm-fullwidth">
+              <a 
+                href="#" 
+                class="dropdown-toggle" 
+                data-toggle="dropdown">Forums</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div id="sitenav-forums-mm" class="yamm-content">
+                    <div class="container">
+                      <div class="yamm-section span6">
+                        <ul class="nav nav-list">
+                          <li class="nav-header">Find a Forum</li>
+                          <li><a href="/twincities">All Twin Cities</a></li>
+                          <li><a href="/twincities/minneapolis">Minneapolis</a></li>
+                          <li><a href="/twincities/stpaul/">St. Paul</a></li>
+                          <li><a href="/uk">United Kingdom</a></li>
+                          <li><a href="/practice">Communities of Practice</a></li>
+                          <li><a href="/groups/">View All &rarr;</a></li>
+                        </ul>
+                      </div>
+                      <div class="yamm-section span6">
+                        <div class="title">
+                          Map of Twin Cities Groups 
+                        </div>
+                        <a class="btn" href="/twincities/map/"><span class="label">Browse Twin Cities Map</span></a>
+                      </div>
+                    </div><!-- /container -->
+                  </div><!-- /yamm-content -->
+                </li>
+              </ul><!-- /dropdown-menu -->
+            </li>
+            <li id="sitenav-about" class="dropdown yamm-fullwidth">
+              <a
+                href="#"
+                class="dropdown-toggle"
+                data-toggle="dropdown">About</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div id="sitenav-about-mm" class="yamm-content">
+                    <div class="container">
+                      <div class="yamm-section span6">
+                        <ul class="nav nav-list">
+                          <li class="nav-header">About</li>
+                          <li><a href="/about/">About E-Democracy.org</a></li>
+                          <li><a href="/about/mission/">Mission and Goals</a></li>
+                          <li><a href="/about/services/">Services</a></li>
+                          <li><a href="/about/people/">People</a></li>
+                          <li><a href="/about/contact/">Contact Us</a></li>
+                          <li><a href="/about/donate/">Donate</a></li>
+                        </ul>
+                      </div>
+                      <div class="yamm-section span6">
+                        <p class="title">Mission Statement</p>
+                        <p>E-Democracy builds online public space in the heart of real democracy and community. Our mission is to harness the power of online tools to support participation in public life, strengthen communities, and build democracy.</p>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li id="sitenav-projects" class="dropdown yamm-fullwidth">
+              <a href="#"
+                 class="dropdown-toggle"
+                 data-toggle="dropdown">Projects</a>
+              <ul class="dropdown-menu">
+                <li>
+                  <div id="sitenav-project-mm" class="yamm-content">
+                    <div class="container">
+                      <div class="yamm-section span12">
+                        <ul class="nav nav-list">
+                          <li class="nav-header">Projects</li>
+                          <li><a href="/projects/">All Projects</a></li>
+                          <li><a href="/projects/engage/">Engage Locally</a></li>
+                          <li><a href="/projects/know/">Knowledge Exchange</a></li>
+                          <li><a href="/projects/tech/">Civic Technology</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </li>
+            <li id="sitenav-blog"><a href="http://blog.e-democracy.org">Blog</a></li>
+            <li id="sitenav-donate"><a href="/getinvolved/">Get Involved</a></li>
+            <li id="sitenav-contact"><a href="/about/donate/">Donate</a></li>
+            <li id="sitenav-support"><a href="/support/">Help</a></li>
+          </ul><!-- /Sitenav -->
+          </div>
+          <div class="clearfix"></div>
+        </div><!--titlebar-->
+      </div><!--toparea-->
+    <div id="gs-content-layout-body">
+      <div id="bodyblock">
+        <div id="breadcrumbs" class="muted small" role="navigation">
+          <metal:block define-slot="breadcrumb"> </metal:block>
+        </div><!--breadcrumbs-->
+        <metal:block define-slot="messages"> </metal:block><!--messages-->
+        <metal:block metal:define-slot="pagetitle"/>
+        <div id="notifications" metal:define-slot="notifications"
+             tal:define="notifications context/notifications | nothing"
+             tal:condition="notifications">
+          <tal:block
+            repeat="notification python:notifications.objectValues()">
+            <p tal:replace="structure python:notification(method='html')">
+              You Maniacs!
+              You blew it up!
+              Ah, <strong>damn you!</strong>
+              God damn you all to <strong>Hell!</strong>
+            </p>
+          </tal:block>
+        </div><!--notifications-->
+        <metal:block define-slot="body" />
+      </div><!--bodyblock-->
+    </div><!--gs-content-layout-body-->
+    <div id="gs-content-layout-footer">
+      <div id="gs-content-layout-footer-content">
+        <metal:block
+          define-slot="footer"
+          tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')"> </metal:block>
+      </div><!--gs-content-layout-footer-content-->
+    </div><!--gs-content-layout-footer-->
+    <script metal:use-macro="context/@@edem_layout_section_javascript/prelude">
+        JavaScript required across all pages, before page specific JavaScript can load
+    </script>
+    <metal:block define-slot="javascript" />
+    <script metal:use-macro="context/@@edem_layout_section_javascript/postlude">
+        JavaScript used across pages, but can and should load later to improve time-to-glass performance
+    </script>
+  </body>
+</html>
+</metal:macro>
