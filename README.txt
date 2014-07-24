@@ -54,6 +54,17 @@ A seperate template exists for each category of groups that can be displayed.
 They can be found in browser/templates/contentProviders/.
 
 
+Minimal Layout
+==============
+
+In addition to the layouts provided by gs.content.layout, this product also
+provides a *Minimal* layout. Because the Full and Menu layouts of this egg use
+a significant amount of dynamic content, the Minimal layout is provided for
+pages on which it is better to not have dynamic content, such as Error pages.
+The Minimal layout should retain much of the look of the Full layout, and might
+even include menus and content stored in the ZODB, but its templates should not 
+attempt to access object properties.
+
 Resources
 =========
 

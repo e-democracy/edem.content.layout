@@ -49,7 +49,7 @@
     name="edem_minimal_layout" 
     for="*"
     layer="edem.skin.interfaces.IEDemLayer"
-    template="browser/templates/minimul_layout.pt"
+    template="browser/templates/minimal_layout.pt"
     permission="zope.Public" />
 
 

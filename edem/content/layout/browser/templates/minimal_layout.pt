@@ -177,9 +177,7 @@
     </div><!--gs-content-layout-body-->
     <div id="gs-content-layout-footer">
       <div id="gs-content-layout-footer-content">
-        <metal:block
-          define-slot="footer"
-          tal:content="structure python:getattr(context, 'footerlinks.xml', getattr(context.Templates.output, 'footerlinks.xml'))(method='html')"> </metal:block>
+        <metal:block define-slot="footer"> </metal:block>
       </div><!--gs-content-layout-footer-content-->
     </div><!--gs-content-layout-footer-->
     <script metal:use-macro="context/@@edem_layout_section_javascript/prelude">
