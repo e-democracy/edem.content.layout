@@ -41,7 +41,7 @@
           href="/++resource++globalstyle-20131105.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
-          href="/++resource++site-20140721.css" />
+          href="/++resource++site-20140728.css" />
     <metal:block define-slot="style" />
   </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
