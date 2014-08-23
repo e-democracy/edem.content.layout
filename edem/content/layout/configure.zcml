@@ -53,7 +53,13 @@
     permission="zope.Public" />
 
 
-  <!-- SiteNav menu macro -->
+  <!-- Reused Layout Sections -->
+  <browser:page
+    name="edem_layout_section_head"
+    for="*"
+    layer="edem.skin.interfaces.IEDemLayer"
+    template="browser/templates/sections/head.pt"
+    permission="zope.Public" />
   <browser:page
     name="edem_layout_section_toparea"
     for="*"

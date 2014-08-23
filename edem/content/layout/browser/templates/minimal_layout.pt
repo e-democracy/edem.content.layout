@@ -13,37 +13,7 @@
                   urlSansProtocol python:':'.join(urlSansPage.split(':')[1:]);"
       tal:attributes="data-skin skin; data-url url;
                       data-url-sans-page urlSansPage">
-  <head>
-    <base tal:attributes="href urlSansProtocol" />
-
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <metal:block define-slot="title" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <tal:block  metal:define-slot="metadata-global"
-      tal:condition="python:hasattr(context, 'metadata.xml')"
-      tal:replace="structure python:getattr(context, 'metadata.xml')()">
-      &#160;
-    </tal:block>
-    <link rel="home" href="/"
-      tal:attributes="title string:${view/siteInfo/name} Home;"/>
-    <link rel="help" href="/help"
-      tal:attributes="title string:${view/siteInfo/name} Help;"/>
-    <tal:block  metal:define-slot="metadata" />
-
-    <!--Favourite Icon-->
-    <link rel="shortcut" href="/++resource++favicon.ico" />
-
-    <!--Open Sans Font-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
-
-    <!-- styling typically covering all sites -->
-    <link rel="stylesheet" type="text/css"
-          href="/++resource++globalstyle-20131105.css" />
-    <!-- styling just covering local customisations to sites -->
-    <link rel="stylesheet" type="text/css"
-          href="/++resource++site-20140822.css" />
-    <metal:block define-slot="style" />
-  </head>
+  <head metal:use-macro="context/@@edem_layout_section_head/head"> </head>
   <body tal:define="siteName view/siteInfo/name | nothing"
     tal:attributes="id python:'page-%s' % request.URLPATH1.strip('/').replace('/','_');">
       <div id="toparea" role="banner">
