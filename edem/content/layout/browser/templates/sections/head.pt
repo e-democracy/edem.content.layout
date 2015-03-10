@@ -1,8 +1,9 @@
-  <head
-      metal:define-macro="head">
+  <head xmlns:metal="http://xml.zope.org/namespaces/metal"
+        xmlns:tal="http://xml.zope.org/namespaces/tal"
+        metal:define-macro="head">
     <base tal:attributes="href urlSansProtocol" />
 
-    <meta name="cat" content"meow"/>
+    <meta name="cat" content="meow"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <metal:block define-slot="title" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -21,7 +22,7 @@
     <link rel="shortcut" href="/++resource++favicon.ico" />
 
     <!--Open Sans Font-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css' />
 
     <!-- styling typically covering all sites -->
     <link rel="stylesheet" type="text/css"
