@@ -32,9 +32,9 @@
           <div class="nav-collapse collapse" id="sitenav-collapse">
             <ul id="sitenav" class="nav nav-list">
             <li id="sitenav-forums" class="dropdown yamm-fullwidth">
-              <a 
-                href="#" 
-                class="dropdown-toggle" 
+              <a
+                href="#"
+                class="dropdown-toggle"
                 data-toggle="dropdown">Forums</a>
               <ul class="dropdown-menu">
                 <li>
@@ -53,7 +53,7 @@
                       </div>
                       <div class="yamm-section span6">
                         <div class="title">
-                          Map of Twin Cities Groups 
+                          Map of Twin Cities Groups
                         </div>
                         <a class="btn" href="/twincities/map/"><span class="label">Browse Twin Cities Map</span></a>
                       </div>
