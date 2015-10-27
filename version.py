@@ -3,7 +3,7 @@ from __future__ import absolute_import, unicode_literals
 
 #-----------------------------------------------------------------------------#
 
-version = '2.0.0'
+version = '2.0.1'
 release = False
 
 #-----------------------------------------------------------------------------#
@@ -57,7 +57,7 @@ def get_version():
         if release:
             version_string = version
         else:
-            version_string = "%s.dev%s-%s" % (version, datestring, commithash)
+            version_string = "%s.dev%s" % (version, datestring)
 
     except CommandError:
         version_string = parse_version_from_package()
