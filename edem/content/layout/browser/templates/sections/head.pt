@@ -29,6 +29,6 @@
           href="/++resource++globalstyle-20151112.css" />
     <!-- styling just covering local customisations to sites -->
     <link rel="stylesheet" type="text/css"
-          href="/++resource++site-20151027.css" />
+          href="/++resource++site-20151113.css" />
     <metal:block define-slot="style" />
   </head>
