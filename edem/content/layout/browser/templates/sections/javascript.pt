@@ -5,7 +5,7 @@
       tal:define="loggedIn python:user.has_role('Authenticated');"
       tal:attributes="data-loggedIn loggedIn;"></span>
     <script type="text/javascript"
-            src="/++resource++gs-content-js-loader-min-20140313.js">&#160;</script>
+            src="/++resource++gs-content-js-loader-min-20160125.js">&#160;</script>
     <script type="text/javascript"
             src="/++resource++jquery-1.12.0.min.js">&#160;</script>
     <script type="text/javascript" defer="defer"
@@ -22,12 +22,12 @@
 <!-- JavaScript used across pages, but can and should load later to improve time-to-glass performance -->
 <metal:block define-macro="postlude">
     <script type="text/javascript"
-            src="/++resource++gs-content-js-disclosure-min-20140313.js"
+            src="/++resource++gs-content-js-disclosure-min-20160122.js"
             defer="defer">&#160;</script>
     <script type="text/javascript"
             src="/++resource++gs-content-js-required-min-20151106.js"
             defer="defer">&#160;</script>
     <script type="text/javascript"
-            src="/++resource++gs-content-js-submit-min-20140313.js"
+            src="/++resource++gs-content-js-submit-min-20160125.js"
             defer="defer">&#160;</script>
 </metal:block>
